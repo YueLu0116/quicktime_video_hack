@@ -183,6 +183,7 @@ func findConfigurations(desc *gousb.DeviceDesc) (int, int) {
 	var qtConfigIndex = -1
 
 	for _, v := range desc.Configs {
+		// can be wrong
 		if isMuxConfig(v) && !isQtConfig(v) {
 			muxConfigIndex = v.Number
 			log.Debugf("Found MuxConfig %d for Device %s", muxConfigIndex, desc.String())
