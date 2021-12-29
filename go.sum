@@ -1,6 +1,4 @@
 github.com/Masterminds/semver v1.5.0/go.mod h1:MB6lktGJrhw8PrUyiEoblNEGEQ+RzHPF078ddwwvV3Y=
-github.com/danielpaulus/go-ios v1.0.12 h1:B0pirHZibKBanZgxZGrOwoejLlEb9zgtde7eHORxLVA=
-github.com/danielpaulus/go-ios v1.0.12/go.mod h1:k+X7QB2ffFOhTkly/nNwvV1VIysif1MWS1s8GgYXpU4=
 github.com/danielpaulus/go-ios v1.0.13 h1:MFc/QOcNXRY2vv/KRijES/sI0+aHTXfzgEeK6qsZOOU=
 github.com/danielpaulus/go-ios v1.0.13/go.mod h1:k+X7QB2ffFOhTkly/nNwvV1VIysif1MWS1s8GgYXpU4=
 github.com/danielpaulus/gst v0.0.0-20200201205042-e6d2974fceb8 h1:+XiTgRoo1bCA3paC4e/0WYWI7+J2O7hR/IYuSikANMw=
@@ -32,6 +30,7 @@ github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZb
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/sirupsen/logrus v1.6.0 h1:UBcNElsrwanuuMsnGSlYmtmgbb23qDR5dG+6X6Oo89I=
 github.com/sirupsen/logrus v1.6.0/go.mod h1:7uNnSEd1DgxDLC74fIahvMZmmYsHGZGEOFrfsX/uA88=
+github.com/stretchr/objx v0.1.0 h1:4G4v2dO3VZwixGIRoQ5Lfboy6nUhCyYzaqnIAPPhYs4=
 github.com/stretchr/objx v0.1.0/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=
 github.com/stretchr/testify v1.2.2/go.mod h1:a8OnRcib4nhh0OaRAV+Yts87kKdq0PP7pXfy6kDkUVs=
 github.com/stretchr/testify v1.6.1 h1:hDPOHmpOpP40lSULcqw7IrRb/u7w6RpDC9399XyoNd0=

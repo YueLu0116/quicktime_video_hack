@@ -7,7 +7,7 @@ require (
 	github.com/danielpaulus/gst v0.0.0-20200201205042-e6d2974fceb8
 	github.com/docopt/docopt-go v0.0.0-20180111231733-ee0de3bc6815
 	github.com/google/gousb v2.1.0+incompatible
-	github.com/lijo-jose/glib v0.0.0-20191012030101-93ee72d7d646
+	//github.com/lijo-jose/glib v0.0.0-20191012030101-93ee72d7d646
 	github.com/niemeyer/pretty v0.0.0-20200227124842-a10e7caefd8e // indirect
 	github.com/pkg/errors v0.9.1
 	github.com/sirupsen/logrus v1.6.0
