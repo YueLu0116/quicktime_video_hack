@@ -33,7 +33,6 @@ func New() *GstAdapter {
 	pl := gst.NewPipeline("QT_Hack_Pipeline")
 
 	videoAppSrc := setUpVideoPipeline(pl)
-	videoAppSrc := setUpAudioPipelineBase(pl)
 	audioAppSrc := setUpAudioPipelineBase(pl)
 	setupLivePlayAudio(pl)
 
