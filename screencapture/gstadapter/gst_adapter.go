@@ -32,10 +32,10 @@ func New() *GstAdapter {
 	log.Info("Starting Gstreamer..")
 	pl := gst.NewPipeline("QT_Hack_Pipeline")
 
-	//videoAppSrc := setUpVideoPipeline(pl)
+	videoAppSrc := setUpVideoPipeline(pl)
 	videoAppSrc := setUpAudioPipelineBase(pl)
 	audioAppSrc := setUpAudioPipelineBase(pl)
-	//setupLivePlayAudio(pl)
+	setupLivePlayAudio(pl)
 
 	pl.SetState(gst.STATE_PLAYING)
 	runGlibMainLoop()

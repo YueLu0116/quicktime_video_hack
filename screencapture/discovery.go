@@ -181,9 +181,8 @@ func isValidIosDeviceWithActiveQTConfig(desc *gousb.DeviceDesc) bool {
 func findConfigurations(desc *gousb.DeviceDesc) (int, int) {
 	var muxConfigIndex = -1
 	var qtConfigIndex = -1
-
 	for _, v := range desc.Configs {
-		// can be wrong
+		log.Debugf("Peek configuration %d", v.Number)
 		if isMuxConfig(v) && !isQtConfig(v) {
 			muxConfigIndex = v.Number
 			log.Debugf("Found MuxConfig %d for Device %s", muxConfigIndex, desc.String())
