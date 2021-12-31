@@ -126,6 +126,7 @@ func (usbAdapter *UsbAdapter) StartReading(device IosDevice, receiver UsbDataRec
 				if err != nil {
 					log.Fatalf("Failed dumping data:%v", err)
 				}
+
 			}
 			receiver.ReceiveData(dataBuffer)
 		}

@@ -4,7 +4,7 @@ import (
 	"bufio"
 	"encoding/json"
 	"fmt"
-	//"github.com/danielpaulus/quicktime_video_hack/screencapture/gstadapter"
+	"github.com/danielpaulus/quicktime_video_hack/screencapture/coremedia"
 	stdlog "log"
 	"os"
 	"os/signal"
@@ -13,9 +13,7 @@ import (
 
 	"github.com/danielpaulus/go-ios/ios"
 	"github.com/danielpaulus/quicktime_video_hack/screencapture"
-	"github.com/danielpaulus/quicktime_video_hack/screencapture/coremedia"
 	"github.com/danielpaulus/quicktime_video_hack/screencapture/diagnostics"
-	//"github.com/danielpaulus/quicktime_video_hack/screencapture/gstadapter"
 	"github.com/docopt/docopt-go"
 	log "github.com/sirupsen/logrus"
 )
@@ -96,29 +94,29 @@ The commands work as following:
 		activate(device)
 		return
 	}
-	audioCommand, _ := arguments.Bool("audio")
-	if audioCommand {
-		outfile, err := arguments.String("<outfile>")
-		if err != nil {
-			printErrJSON(err, "Missing <outfile> parameter. Please specify a valid path like '/home/me/out.h264'")
-			return
-		}
-		log.Infof("Recording audio only to file: %s", outfile)
-		mp3, _ := arguments.Bool("--mp3")
-		ogg, _ := arguments.Bool("--ogg")
-		wav, _ := arguments.Bool("--wav")
-		log.Debugf("recording audio only format mp3:%t ogg: %t wav:%t to file: %s", mp3, ogg, wav, outfile)
-		if wav {
-			recordAudioWav(outfile, device)
-			return
-		}
-		if ogg {
-			//recordAudioGst(outfile, device, gstadapter.OGG)
-			return
-		}
-		//recordAudioGst(outfile, device, gstadapter.MP3)
-		return
-	}
+	//audioCommand, _ := arguments.Bool("audio")
+	//if audioCommand {
+	//	outfile, err := arguments.String("<outfile>")
+	//	if err != nil {
+	//		printErrJSON(err, "Missing <outfile> parameter. Please specify a valid path like '/home/me/out.h264'")
+	//		return
+	//	}
+	//	log.Infof("Recording audio only to file: %s", outfile)
+	//	mp3, _ := arguments.Bool("--mp3")
+	//	ogg, _ := arguments.Bool("--ogg")
+	//	wav, _ := arguments.Bool("--wav")
+	//	log.Debugf("recording audio only format mp3:%t ogg: %t wav:%t to file: %s", mp3, ogg, wav, outfile)
+	//	if wav {
+	//		recordAudioWav(outfile, device)
+	//		return
+	//	}
+	//	if ogg {
+	//		recordAudioGst(outfile, device, gstadapter.OGG)
+	//		return
+	//	}
+	//	recordAudioGst(outfile, device, gstadapter.MP3)
+	//	return
+	//}
 
 	diagnostics, _ := arguments.Bool("diagnostics")
 	if diagnostics {
@@ -245,32 +243,32 @@ func runDiagnostics(outfile string, dump bool, dumpFile string, device screencap
 	startWithConsumer(consumer, device, false)
 }
 
-func recordAudioWav(outfile string, device screencapture.IosDevice) {
-	log.Debug("Starting Gstreamer with audio pipeline")
-	wavFile, err := os.Create(outfile)
-	if err != nil {
-		log.Debugf("Error creating wav file:%s", err)
-		log.Errorf("Could not open wav file '%s'", outfile)
-	}
-	wavFileWriter := coremedia.NewAVFileWriterAudioOnly(wavFile)
-
-	defer func() {
-		stat, err := wavFile.Stat()
-		if err != nil {
-			log.Fatal("Could not get wav file stats", err)
-		}
-		err = coremedia.WriteWavHeader(int(stat.Size()), wavFile)
-		if err != nil {
-			log.Fatalf("Error writing wave header %s might be invalid. %s", outfile, err.Error())
-		}
-		err = wavFile.Close()
-		if err != nil {
-			log.Fatalf("Error closing wave file. '%s' might be invalid. %s", outfile, err.Error())
-		}
-
-	}()
-	startWithConsumer(wavFileWriter, device, true)
-}
+//func recordAudioWav(outfile string, device screencapture.IosDevice) {
+//	log.Debug("Starting Gstreamer with audio pipeline")
+//	wavFile, err := os.Create(outfile)
+//	if err != nil {
+//		log.Debugf("Error creating wav file:%s", err)
+//		log.Errorf("Could not open wav file '%s'", outfile)
+//	}
+//	wavFileWriter := coremedia.NewAVFileWriterAudioOnly(wavFile)
+//
+//	defer func() {
+//		stat, err := wavFile.Stat()
+//		if err != nil {
+//			log.Fatal("Could not get wav file stats", err)
+//		}
+//		err = coremedia.WriteWavHeader(int(stat.Size()), wavFile)
+//		if err != nil {
+//			log.Fatalf("Error writing wave header %s might be invalid. %s", outfile, err.Error())
+//		}
+//		err = wavFile.Close()
+//		if err != nil {
+//			log.Fatalf("Error closing wave file. '%s' might be invalid. %s", outfile, err.Error())
+//		}
+//
+//	}()
+//	startWithConsumer(wavFileWriter, device, true)
+//}
 
 //func startGStreamerWithCustomPipeline(device screencapture.IosDevice, pipelineString string) {
 //	log.Debug("Starting Gstreamer with custom pipeline")
@@ -281,7 +279,7 @@ func recordAudioWav(outfile string, device screencapture.IosDevice) {
 //	}
 //	startWithConsumer(gStreamer, device, false)
 //}
-//
+
 //func startGStreamer(device screencapture.IosDevice) {
 //	log.Debug("Starting Gstreamer")
 //	gStreamer := gstadapter.New()
